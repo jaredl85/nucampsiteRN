@@ -31,12 +31,15 @@ const mapDispatchToProps = {
 };
 
 function RenderCampsite(props) {
-  const { campsite } = props;
 
+  const { campsite } = props;
   const view = React.createRef();
 
   const recognizeDrag = ({dx}) => (dx < -200) ? true : false;
-
+  ///start workshop 3 addition
+  const recognizeComment = ({dx}) => (dx > -200) ? true : false;
+  ////end workshop 3 addition
+  
   const panResponder = PanResponder.create({
     onStartShouldSetPanResponder: () => true,
     onPanResponderGrant: () => {
@@ -63,6 +66,9 @@ function RenderCampsite(props) {
           ],
           { cancelable: false }
         );
+      }
+      else if (recognizeComment(gestureState)) {
+        props.onShowModal()
       }
     }
   })
@@ -108,6 +114,8 @@ function RenderCampsite(props) {
     );
   }
   return <View />;
+
+  ///END RENDER CAMPSITE COMPONENT
 }
 
 function RenderComments({ comments }) {
