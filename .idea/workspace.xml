@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e8103db0-ca37-4a6e-8f18-dabc8b093dcf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CampsiteInfoComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/CampsiteInfoComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ReservationComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ReservationComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/MainComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/MainComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,9 +45,9 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1199" y="485" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1627499592401" />
-    <state x="1245" y="227" width="1100" height="800" key="AVDManager" timestamp="1628437930897">
+    <state x="1245" y="227" width="1100" height="800" key="AVDManager" timestamp="1628723217233">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1245" y="227" width="1100" height="800" key="AVDManager/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1628437930897" />
+    <state x="1245" y="227" width="1100" height="800" key="AVDManager/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1628723217233" />
   </component>
 </project>
