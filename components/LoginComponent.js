@@ -5,6 +5,8 @@ import * as SecureStore from "expo-secure-store";
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
 import { createBottomTabNavigator } from "react-navigation-tabs";
+import * as ImageManipulator from 'expo-image-manipulator';
+import * as MediaLibrary from 'expo-media-library';
 import { baseUrl } from "../shared/baseUrl";
 
 class LoginTab extends Component {
@@ -152,9 +154,36 @@ class RegisterTab extends Component {
       });
       if (!capturedImage.cancelled) {
         console.log(capturedImage);
-        this.setState({imageUrl: capturedImage.uri})
+        //this.setState({imageUrl: capturedImage.uri})
+        this.processImage(capturedImage.uri);
       }
     }
+  }
+
+  
+  getImageFromGallery = async () => {
+    const cameraRollPermission = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+
+    if (cameraRollPermission.status === 'granted') {
+      const capturedImage = await ImagePicker.launchImageLibraryAsync({
+        allowsEditing: true,
+        aspect: [1, 1]
+      });
+      if (!capturedImage.cancelled) {
+        console.log(capturedImage);
+        //this.setState({imageUrl: capturedImage.uri})
+        this.processImage(capturedImage.uri);
+      }
+    }
+  }
+
+  processImage = async (imgUri) => {
+    const processedImage = await ImageManipulator.manipulateAsync(imgUri, 
+    [{resize: {width: 400}}], 
+    {compress: 1, format: ImageManipulator.SaveFormat.PNG});
+    console.log(processedImage);
+    this.setState({imageUrl: processedImage.uri});
+    MediaLibrary.saveToLibraryAsync(processedImage.uri);
   }
 
   handleRegister() {
@@ -187,6 +216,10 @@ class RegisterTab extends Component {
             <Button
               title='Camera'
               onPress={this.getImageFromCamera}
+            />
+            <Button
+              title='Gallery'
+              onPress={this.getImageFromGallery}
             />
           </View>
           <Input
@@ -282,8 +315,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   formInput: {
-    padding: 8,
-    marginTop: -15
+    padding: 8
   },
   formCheckBox: {
     margin: 8,
